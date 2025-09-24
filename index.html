@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juego de Operaciones Matemáticas</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>⚔️ Jugando Y Aprendiendo ⚔️</h1>
+  </header>
+
+  <!-- Música de fondo -->
+  <audio id="audioFondo" src="sounds/fondo.mp3" loop></audio>
+
+  <!-- Sonidos -->
+  <audio id="audioSword" src="sounds/sword.wav"></audio>
+  <audio id="audioOrc" src="sounds/orc.wav"></audio>
+  <audio id="audioVictory" src="sounds/victory.wav"></audio>
+  <audio id="audioDefeat" src="sounds/defeat.wav"></audio>
+
+  <!-- Inicio -->
+  <section id="inicio" class="pantalla" style="background-image: url('images/Trono_del_castillo_hiryuu.webp');">
+    <div class="container">
+      <h2>Bienvenido</h2>
+      <p>Practica operaciones básicas de manera divertida. ¡Derrota a los enemigos respondiendo correctamente!</p>
+      <button onclick="iniciarJuego()">Comenzar</button>
+      <button onclick="abrirModal()">¿Cómo jugar?</button>
+    </div>
+  </section>
+
+  <!-- Juego -->
+  <section id="juego" class="pantalla hidden">
+    <div class="container">
+      <h2 id="nivel">Nivel 1</h2>
+      <p class="puntaje">⭐ Puntaje: <span id="puntaje">0</span></p>
+
+      <div class="characters">
+        <div>
+          <h3>Caballero</h3>
+          <div class="health-bar"><div id="vidaCaballeroBar" class="health"></div></div>
+          <img id="caballero" src="images/knight.png" alt="Caballero" class="character caballero">
+        </div>
+        <div>
+          <h3 id="nombreEnemigo">Orco</h3>
+          <div class="health-bar"><div id="vidaEnemigoBar" class="health"></div></div>
+          <img id="enemigo" src="images/orc.png" alt="Enemigo" class="character enemigo">
+        </div>
+      </div>
+
+      <p id="pregunta"></p>
+      <input type="number" id="respuesta" placeholder="Tu respuesta">
+      <div>
+        <button onclick="verificarRespuesta()">Responder</button>
+      </div>
+      <p id="mensaje"></p>
+    </div>
+  </section>
+
+  <!-- Fin del juego -->
+  <section id="gameover" class="pantalla hidden" style="background-image: url('images/Trono_del_castillo_hiryuu.webp');">
+    <div class="container">
+      <h2>😢 Fin del Juego</h2>
+      <p>Tu puntaje final fue: <span id="puntajeFinal"></span></p>
+      <button onclick="reiniciarJuego()">Reiniciar</button>
+    </div>
+  </section>
+
+  <!-- Botón flotante de ayuda -->
+  <div class="help-button" onclick="abrirModal()">📜</div>
+
+  <!-- Modal de ayuda -->
+  <div id="modalAyuda" class="modal" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+      <span class="close" onclick="cerrarModal()">&times;</span>
+      <h2>¿Cómo jugar?</h2>
+      <p>Responde correctamente a las operaciones matemáticas para que el caballero ataque y dañe al enemigo. Si fallas, ¡el enemigo contraataca!</p>
+      <h2>Explicación de Operaciones</h2>
+      <p><span style="color:green">➕ Suma:</span> juntar cantidades. Ej: 3 + 2 = 5</p>
+      <p><span style="color:red">➖ Resta:</span> quitar cantidades. Ej: 5 - 2 = 3</p>
+      <p><span style="color:blue">✖️ Multiplicación:</span> sumas repetidas. Ej: 3 × 4 = 12</p>
+      <p><span style="color:purple">➗ División:</span> repartir en partes iguales. Ej: 12 ÷ 3 = 4</p>
+    </div>
+  </div>
+
+  <script src="js/game.js"></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+/* styles.css */ 
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+header {
+  background: rgba(0,0,0,0.7);
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.pantalla {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container {
+  background: rgba(0,0,0,0.7);
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 800px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.7);
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #c59d5f;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  background: #a67c2e;
+}
+
+input {
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: 2px solid #ccc;
+  text-align: center;
+}
+
+.hidden { display: none; }
+
+.puntaje { font-size: 20px; margin: 10px; }
+
+.characters {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.character {
+  transition: transform 0.3s;
+}
+
+.caballero { width: 250px; }
+.enemigo { width: 220px; }
+.enemigo.troll { width: 280px; }
+.enemigo.dragon { width: 350px; }
+
+.attack { transform: translateX(20px) scale(1.1); }
+.hit { animation: shake 0.3s; }
+
+@keyframes shake {
+  0% { transform: translate(0,0); }
+  25% { transform: translate(-10px, 0); }
+  50% { transform: translate(10px, 0); }
+  75% { transform: translate(-10px, 0); }
+  100% { transform: translate(0,0); }
+}
+
+.health-bar {
+  height: 20px;
+  background: red;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  margin: 5px 0;
+  width: 100%;
+}
+
+.health {
+  height: 100%;
+  background: limegreen;
+  border-radius: 10px;
+  width: 100%;
+  transition: width 0.5s;
+}
+
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #f8f0dc;
+  color: #333;
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 600px;
+  text-align: left;
+  font-family: 'Georgia', serif;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px; right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.help-button {
+  position: fixed;
+  bottom: 20px; right: 20px;
+  background: #c59d5f;
+  border-radius: 50%;
+  width: 50px; height: 50px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+}
